@@ -51,7 +51,7 @@ const programSchema = new mongoose.Schema({
 
   
   app.get('/students/:id', async (req, res) => {
-    const student = await Student.findById(req.params.id).populate('program');
+    const student = await Student.findOne({ studentId: req.params.id }).populate('program');
     res.json(student);
   });
 
